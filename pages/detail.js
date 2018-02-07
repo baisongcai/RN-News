@@ -116,10 +116,10 @@ export default class Detail extends Component{
         			<View style={{flex:1}}>
                         <Image style={[this.state.imageStyle,styles.img_view]} source={{uri: obj.thumbnail_pic_s,cache:'force-cache'}}></Image>
                     </View>
-                    <View style={{flex:1,position:'relative',left:5}}>
+                    <View style={{flex:1,alignItems:'center'}}>
                         <Image style={[this.state.imageStyle,styles.img_view]} source={{uri: obj.thumbnail_pic_s02,cache:'force-cache'}}></Image>
                     </View>
-        			<View style={{flex:1}}>
+        			<View style={{flex:1,alignItems:'flex-end'}}>
                         <Image style={[this.state.imageStyle,styles.img_view]} source={{uri: obj.thumbnail_pic_s03,cache:'force-cache'}}></Image>         
                     </View>
         		</View>
