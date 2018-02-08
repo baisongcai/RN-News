@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import Dimensions from 'Dimensions'
+import Dimensions from 'Dimensions'   //获取屏幕的尺寸
+import listDetail from './listDetail'
+
 import {
   Platform,
   StyleSheet,
@@ -30,20 +32,15 @@ import {
 
 var ITEM_HEIGHT = 100;
 
-export default class Detail extends Component{
+export default class list extends Component{
     
-
-    
-
-
-
-	_flatList;
-	static navigationOptions = {
+    _flatList;
+    static navigationOptions = {
         title: 'FlatListExample',
     }
 
     //控制器即将销毁的时候
-		componentWillUnmount() {
+        componentWillUnmount() {
         // 请注意Un"m"ount的m是小写
 
         // 如果存在this.timer，则使用clearTimeout清空。
@@ -62,28 +59,28 @@ export default class Detail extends Component{
             imageStyle:{}
         }
     }
-	refreshing=()=>{
-		this.setState({
+    refreshing=()=>{
+        this.setState({
             isLoading: true,
         });
 
-		let timer = setTimeout(()=>{
-			clearTimeout(timer)
-			this.getListData()
-		},1000)
-	}
+        let timer = setTimeout(()=>{
+            clearTimeout(timer)
+            this.getListData()
+        },1000)
+    }
 
-	onload(){
-		let timer = setTimeout(()=>{
-			clearTimeout(timer)
-			alert('加载成功')
-		})
-	}
+    onload(){
+        let timer = setTimeout(()=>{
+            clearTimeout(timer)
+            alert('加载成功')
+        })
+    }
 
-	getListData(){
-		fetch('https://v.juhe.cn/toutiao/index?key=1a52343f75501c9e0988e66bcb45d58e').then((response) => response.json()).
-		then((json) => {
-			let data =  json.result.data;
+    getListData(){
+        fetch('https://v.juhe.cn/toutiao/index?key=1a52343f75501c9e0988e66bcb45d58e').then((response) => response.json()).
+        then((json) => {
+            let data =  json.result.data;
              let dataBlob = [];
              let i = 0;
              data.map(function (item) {
@@ -93,52 +90,60 @@ export default class Detail extends Component{
                 })
                 i++;
              });
-		    this.setState({
+            this.setState({
                     //复制数据源
                     dataArray: dataBlob,
                     isLoading: false,
                 });
                 data = null;
                 dataBlob = null;
-		    
-		    console.log('111111111111111111');
-		    console.log(this.state.dataArray);
-		}).catch((error) => {
-		    console.log(error);
-		})	}
+            
+            console.log('111111111111111111');
+            console.log(this.state.dataArray);
+        }).catch((error) => {
+            console.log(error);
+        })  }
+
+    pusDetailView(obj){
+        this.props.navigator.push({
+            component: listDetail,
+            title:'详情',
+            passProps:{
+                url:obj.url
+            }
+        })
+    }
 
 
-	_renderItem = (item) => {
+    _renderItem = (item) => {
 
-		let obj = item.item.value;
+        let obj = item.item.value;
         return( 
-        	// <Text style={[{flex:1,height:ITEM_HEIGHT,backgroundColor:bgColor},styles.txt]}>{txt}</Text>
-            <TouchableHighlight underlayColor={'#FA6778'}> 
-        	<View style={styles.bgView}>
-        		
-        		<Text>{obj.title}</Text>
-        		<View style={{flexDirection:'row',paddingTop:10,paddingBottom:10}}>
-        			<View style={{flex:1}}>
+            <TouchableHighlight underlayColor={'#dcdcdc'} onPress={this.pusDetailView.bind(this,obj)}> 
+            <View style={styles.bgView}>
+                <Text>{obj.title}</Text>
+                <View style={{flexDirection:'row',paddingTop:10,paddingBottom:10}}>
+                    <View style={{flex:1}}>
                         <Image style={[this.state.imageStyle,styles.img_view]} source={{uri: obj.thumbnail_pic_s,cache:'force-cache'}}></Image>
                     </View>
                     <View style={{flex:1,alignItems:'center'}}>
                         <Image style={[this.state.imageStyle,styles.img_view]} source={{uri: obj.thumbnail_pic_s02,cache:'force-cache'}}></Image>
                     </View>
-        			<View style={{flex:1,alignItems:'flex-end'}}>
+                    <View style={{flex:1,alignItems:'flex-end'}}>
                         <Image style={[this.state.imageStyle,styles.img_view]} source={{uri: obj.thumbnail_pic_s03,cache:'force-cache'}}></Image>         
                     </View>
-        		</View>
-        		<View style={{flexDirection:'row'}}>
-        			<Text style={{flex:1,textAlign:'left'}}>{obj.author_name}</Text>
-        			<Text style={{flex:1,textAlign:'right'}}>{obj.date}</Text>
-        		</View>
-        	</View>
+                </View>
+                <View style={{flexDirection:'row'}}>
+                    <Text style={{flex:1,textAlign:'left'}}>{obj.author_name}</Text>
+                    <Text style={{flex:1,textAlign:'right'}}>{obj.date}</Text>
+                </View>
+            </View>
             </TouchableHighlight>
         )
 
-	}
+    }
 
-	// _header = () => {
+    // _header = () => {
  //        return <Text style={[styles.txt,{backgroundColor:'black'}]}>这是头部</Text>;
  //    }
 
@@ -151,7 +156,7 @@ export default class Detail extends Component{
     }
 
     componentDidMount() {
-    	// alert(1)
+        // alert(1)
         //请求数据
         this.getListData();
              var ScreenWidth = Dimensions.get('window').width;
@@ -165,10 +170,9 @@ export default class Detail extends Component{
     }
 
 
-	render(){
-    
-		return (
-			<View style={{flex:1}}>
+    render(){
+        return (
+            <View style={{flex:1}}>
                 <Button title='滚动到指定位置' onPress={()=>{
                     //this._flatList.scrollToEnd();
                     //this._flatList.scrollToIndex({viewPosition:0,index:8});
@@ -217,26 +221,26 @@ export default class Detail extends Component{
                 </View>
 
             </View>
-		)
-	}
+        )
+    }
 }
 const styles = StyleSheet.create({
-	bgView:{
-		flex:1,
-		paddingTop:15,
-		paddingBottom:15,
-		paddingLeft:15,
-		paddingRight:15
-	},
-	img_view:{
-	    // height:100,
+    bgView:{
+        flex:1,
+        paddingTop:15,
+        paddingBottom:15,
+        paddingLeft:15,
+        paddingRight:15
+    },
+    img_view:{
+        // height:100,
         resizeMode: Image.resizeMode.center,
-	    // borderWidth:1,
-	    // paddingRight:5,
-	    // flex:1,
-	    backgroundColor:'#FFF',
-	    borderColor:'#dcdcdc'
-  	},
+        // borderWidth:1,
+        // paddingRight:5,
+        // flex:1,
+        backgroundColor:'#FFF',
+        borderColor:'#dcdcdc'
+    },
     txt: {
         textAlign: 'center',
         textAlignVertical: 'center',

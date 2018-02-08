@@ -7,6 +7,7 @@
 import React, { Component } from 'react';
 import Index from './pages/Index'
 import detail from './pages/detail'
+import list from './pages/list'
 
 import {
   Platform,
@@ -27,7 +28,7 @@ const instructions = Platform.select({
 export default class App extends Component<{}> {
   render() {
     return (
-      <NavigatorIOS style={styles.flex_1} initialRoute={{title:'首页',component:detail}}></NavigatorIOS>
+      <NavigatorIOS style={styles.flex_1} initialRoute={{title:'首页',component:list}}></NavigatorIOS>
     );
   }
 }
