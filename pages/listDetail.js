@@ -7,9 +7,11 @@ export default class listDetail extends Component{
 
 	constructor(props) {
         super(props);
+        const {navigate,goBack,state} = this.props.navigation;
         this.state = {
-            url:this.props.url
+            url:state.params.url
         }
+        // alert(state.params.url)
     }
 	render(){
 		return (

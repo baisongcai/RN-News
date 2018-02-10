@@ -32,7 +32,7 @@ var ITEM_HEIGHT = 100;
 
 export default class Detail extends Component{
     
-
+  
     
 
 
@@ -166,7 +166,7 @@ export default class Detail extends Component{
 
 
 	render(){
-    
+
 		return (
 			<View style={{flex:1}}>
                 <Button title='滚动到指定位置' onPress={()=>{

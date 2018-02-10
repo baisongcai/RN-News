@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component,PropTypes } from 'react';
 import Swiper from 'react-native-swiper';
 import Detail from './detail'
 
@@ -221,9 +221,8 @@ export default class Index extends Component<{}> {
 
 const styles = StyleSheet.create({
 	container:{
-    	backgroundColor:'#F2F2F2',
-    	flex:1,
-      marginTop:-65
+    	// backgroundColor:'#F2F2F2',
+    	// flex:1
 	},
   row:{
     flexDirection:'row',

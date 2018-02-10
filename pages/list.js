@@ -32,9 +32,11 @@ import {
 
 var ITEM_HEIGHT = 100;
 
+
 export default class list extends Component{
     
     _flatList;
+    navigation;
     static navigationOptions = {
         title: 'FlatListExample',
     }
@@ -58,6 +60,8 @@ export default class list extends Component{
             dataArray: [],
             imageStyle:{}
         }
+        const {navigate,goBack,state} = this.props.navigation;
+        navigation = navigate;
     }
     refreshing=()=>{
         this.setState({
@@ -105,15 +109,8 @@ export default class list extends Component{
         })  }
 
     pusDetailView(obj){
-        this.props.navigator.push({
-            component: listDetail,
-            title:'详情',
-            passProps:{
-                url:obj.url
-            }
-        })
+        navigation('detail',{url:obj.url});
     }
-
 
     _renderItem = (item) => {
 
@@ -173,7 +170,7 @@ export default class list extends Component{
     render(){
         return (
             <View style={{flex:1}}>
-                <Button title='滚动到指定位置' onPress={()=>{
+                <Button title='' onPress={()=>{
                     //this._flatList.scrollToEnd();
                     //this._flatList.scrollToIndex({viewPosition:0,index:8});
                     this._flatList.scrollToOffset({animated: true, offset: 200});
