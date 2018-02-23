@@ -37,9 +37,9 @@ export default class list extends Component{
     
     _flatList;
     navigation;
-    static navigationOptions = {
-        title: 'FlatListExample',
-    }
+    // self.navigationOptions = {
+    //     title: 'FlatListExample',
+    // }
 
     //控制器即将销毁的时候
         componentWillUnmount() {
@@ -109,11 +109,10 @@ export default class list extends Component{
         })  }
 
     pusDetailView(obj){
-        navigation('detail',{url:obj.url});
+        navigation('detail',{url:obj.url,name:obj.title});
     }
 
     _renderItem = (item) => {
-
         let obj = item.item.value;
         return( 
             <TouchableHighlight underlayColor={'#dcdcdc'} onPress={this.pusDetailView.bind(this,obj)}> 

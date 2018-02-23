@@ -9,6 +9,7 @@ import React, { Component,PropTypes } from 'react';
 // import Index from './pages/Index'
 import detail from './pages/listDetail'
 import list from './pages/list'
+import index from './pages/Index'
 // import CustomerComponents, {Navigator} from 'react-native-deprecated-custom-components'
 
 import {
@@ -17,6 +18,7 @@ import {
   Text,
   View,
   Image,
+  Button,
   NavigatorIOS
 } from 'react-native';
 
@@ -34,12 +36,21 @@ const RouteConfigs = {
     screen:list,
     navigationOptions: ({navigation}) => ({
       title: '首页',
+
     }),
   },
   detail:{
     screen:detail,
     navigationOptions: ({navigation}) => ({
-      title: '详情',
+      // title: '详情',
+
+    }),
+  },
+  index:{
+    screen:index,
+    navigationOptions: ({navigation}) => ({
+      title: '页面',
+
     }),
   }
 }
@@ -47,11 +58,18 @@ const RouteConfigs = {
 const StackNavigatorConfig = {
   initialRouteName:'Home',
   initialRouteParams: {initPara: '初始页面参数'},
-    navigationOptions: {
-        title: '标题',
-        // headerTitleStyle: {fontSize: 18, color: '#666666'},
-        headerStyle: {height: 48, backgroundColor: '#fff'},
-    },
+    // navigationOptions: {
+    //     title: '标题',
+    //     // headerTitleStyle: {fontSize: 18, color: '#666666'},
+    //     headerStyle: {height: 48, backgroundColor: '#fff'},
+    //     // headerRight:(
+    //     //   <Button title="布局"
+    //     //           onPress={()=>{
+    //     //             navigation('index')
+    //     //           }}
+    //     //   ></Button>
+    //     // )
+    // },
     cardStyle: {backgroundColor: "#ffffff"},
 }
 

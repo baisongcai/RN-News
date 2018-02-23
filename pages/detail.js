@@ -32,15 +32,10 @@ var ITEM_HEIGHT = 100;
 
 export default class Detail extends Component{
     
-  
-    
-
-
-
 	_flatList;
-	static navigationOptions = {
-        title: 'FlatListExample',
-    }
+
+
+
 
     //控制器即将销毁的时候
 		componentWillUnmount() {
@@ -62,6 +57,7 @@ export default class Detail extends Component{
             imageStyle:{}
         }
     }
+
 	refreshing=()=>{
 		this.setState({
             isLoading: true,

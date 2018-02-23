@@ -30,7 +30,7 @@ var Images = [
 class Slider extends React.Component{
     render(){
       return (
-        <Swiper style={styles.wrapper} showsButtons={false} autoplay={true} height={150} showsPagination={false}>
+        <Swiper showsButtons={false} autoplay={true} height={80} showsPagination={false}>
         <TouchableHighlight underlayColor={'#FA6778'} style={{flex:1}} onPress={() => console.log('pressed1')}>
           <Image style={{height:40,width:100}} source={{uri: sliderImgs[0]}}></Image>
         </TouchableHighlight>
@@ -255,8 +255,7 @@ const styles = StyleSheet.create({
     resizeMode: Image.resizeMode.contain,
   },
   wrapper:{
-  	height:80,
-  	paddingTop:65,
+  	// height:40
   },
   sbu_borderRight:{
     borderColor:'#fff',

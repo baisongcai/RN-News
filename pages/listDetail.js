@@ -1,9 +1,23 @@
 import React, { Component } from 'react';
 import {
-  WebView
+  WebView,
+  Button
 } from 'react-native';
 
 export default class listDetail extends Component{
+
+    static navigationOptions = ({ navigation }) => ({
+        title: navigation.state.params.name,
+        headerRight:(
+          <Button title="布局"
+                  onPress={()=>{
+                    navigation.navigate('index')
+                  }}
+          ></Button>
+        )
+    });
+
+
 
 	constructor(props) {
         super(props);
