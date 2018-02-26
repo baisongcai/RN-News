@@ -311,5 +311,4 @@ class Slider extends React.Component{
   }
 }
 ```
-
-##最后别忘了npm install 
+## 最后别忘了npm install 
