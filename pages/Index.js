@@ -47,14 +47,14 @@ class Slider extends React.Component{
 
 export default class Index extends Component<{}> {
   clickJump(){
-    this.props.navigator.push({
-      component: Detail,
-      title:'详情',
-      rightButtonTitle: '收藏',
-       onRightButtonPress: function(){
-         alert('点击了收藏按钮。');
-       }
-    })
+    // this.props.navigator.push({
+    //   component: Detail,
+    //   title:'详情',
+    //   rightButtonTitle: '收藏',
+    //    onRightButtonPress: function(){
+    //      alert('点击了收藏按钮。');
+    //    }
+    // })
   }
   getListData(){
     let param = {
