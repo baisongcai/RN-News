@@ -262,3 +262,54 @@ const styles = StyleSheet.create({
     }
 });
 ```
+
+### **listDetail** 列表详情页面很简单只用了WebView组件加载列表页传过来的新闻地址，获取路由传过来参数的方法
+```
+const {navigate,goBack,state} = this.props.navigation;
+this.state = {
+	url:state.params.url
+}
+```
+
+### **index** 页面是练习布局的，此页面用到了Swiper，首先先安装组件,这里只用到了简单的轮播效果
+```
+$ npm install react-native-swiper --save  
+$ npm i react-timer-mixin --save
+
+import Swiper from 'react-native-swiper';
+
+var sliderImgs = [
+    'https://images3.c-ctrip.com/SBU/apph5/201505/16/app_home_ad16_640_128.png',
+    'https://images3.c-ctrip.com/rk/apph5/C1/201505/app_home_ad49_640_128.png',
+    'https://images3.c-ctrip.com/rk/apph5/D1/201506/app_home_ad05_640_128.jpg'
+];
+var BUIcon = [
+  'https://raw.githubusercontent.com/vczero/vczero.github.io/master/ctrip/%E6%9C%AA%E6%A0%87%E9%A2%98-1.png',
+  'https://raw.githubusercontent.com/vczero/vczero.github.io/master/ctrip/feiji.png',
+  'https://raw.githubusercontent.com/vczero/vczero.github.io/master/ctrip/lvyou.png',
+  'https://raw.githubusercontent.com/vczero/vczero.github.io/master/ctrip/gonglue.png'
+];
+var Images = [
+  'https://webresource.c-ctrip.com/ResCRMOnline/R5/html5/images/zzz_pic_salead01.png',
+  'https://images3.c-ctrip.com/rk/apph5/B1/201505/app_home_ad06_310_120.jpg'
+];
+class Slider extends React.Component{
+    render(){
+      return (
+        <Swiper showsButtons={false} autoplay={true} height={80} showsPagination={false}>
+        <TouchableHighlight underlayColor={'#FA6778'} style={{flex:1}} onPress={() => console.log('pressed1')}>
+          <Image style={{height:40,width:100}} source={{uri: sliderImgs[0]}}></Image>
+        </TouchableHighlight>
+        <TouchableHighlight underlayColor={'#FA6778'} style={{flex:1}} onPress={() => console.log('pressed2')}>
+          <Image style={[styles.slide,]} source={{uri: sliderImgs[1]}}></Image>
+        </TouchableHighlight>
+        <TouchableHighlight underlayColor={'#FA6778'} style={{flex:1}} onPress={() => console.log('pressed3')}>
+          <Image style={[styles.slide,]} source={{uri: sliderImgs[2]}}></Image>
+        </TouchableHighlight>
+        </Swiper>
+      );
+  }
+}
+```
+
+##最后别忘了npm install 
