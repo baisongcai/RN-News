@@ -1,7 +1,18 @@
 # RN-News
 一个新闻的demo
 此项目是我第一个github分享的demo，也是第一个RN的小项目，主要是用来练手，RN版本为0.52.0，代码中用了免费的集合数据API，过期可能就无效。此demo对于深入研究
-RN的意义不大，对于入门级的可以参考，希望能帮助到和我一样的小白。目前只支持IOS，后续会兼容android，因为有限的API，页面也就这么多了。  
+RN的意义不大，对于入门级的可以参考，希望能帮助到和我一样的小白。支持IOS和Android，因为有限的API，页面也就这么多了。	
+#####	在兼容Android过程中遇到了一个坑，在模拟器上没有问题，在真机就会报错   
+####  Unable to load script from assets index.android.bundle 
+####	解决方法
+1.	android/app/src/main 这个路径下新建assets文件夹
+2. 	在根目录运行 react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res 运行完在assets文件夹下会出现index.android.bundle 和 index.android.bundle.meta文件
+
+3.  react-native run-android
+
+总结：  
+index.android.bundle是用来调用原生控件的js脚本，每次当改变了 index.android.js，都需要使用上面的代码片段，来及时的更新index.android.bundle，然后打包才可以把新的index.android.js应用上，所以当没有index.android.bundle文件时，React-Native 项目是无法运行的。
+
 ##页面要点
 
 ### **APP.js** 入口文件使用StackNavigator组件做导航
