@@ -12,6 +12,7 @@ import {
   Button,
   FlatList,
   RefreshControl,
+  NativeModules
 } from 'react-native';
 
 // ItemSeparatorComponent：分割线组件， 
@@ -32,7 +33,7 @@ import {
 
 var ITEM_HEIGHT = 100;
 
-
+var HybirdController = NativeModules.HybirdController
 export default class list extends Component{
     
     _flatList;
@@ -82,6 +83,7 @@ export default class list extends Component{
     }
 
     getListData(){
+        HybirdController.showLoading()
         fetch('https://v.juhe.cn/toutiao/index?key=1a52343f75501c9e0988e66bcb45d58e').then((response) => response.json()).
         then((json) => {
             let data =  json.result.data;
@@ -104,7 +106,9 @@ export default class list extends Component{
             
             console.log('111111111111111111');
             console.log(this.state.dataArray);
+            HybirdController.dismiss()
         }).catch((error) => {
+            HybirdController.dismiss()
             console.log(error);
         })  }
 
