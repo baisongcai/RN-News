@@ -7,7 +7,6 @@
 //
 
 #import "HybirdController.h"
-#import "MBProgressHUD+NHAdd.h"
 #import "SVProgressHUD.h"
 
 @implementation HybirdController
