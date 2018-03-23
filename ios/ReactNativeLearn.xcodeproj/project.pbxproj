@@ -37,6 +37,9 @@
 		2DCD954D1E0B4F2C00145EB5 /* ReactNativeLearnTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* ReactNativeLearnTests.m */; };
 		5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
+		84A32FFD2065096200FD70DD /* HybirdController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A32FF72065096200FD70DD /* HybirdController.m */; };
+		84A32FFE2065096200FD70DD /* HybirdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A32FFA2065096200FD70DD /* HybirdViewController.m */; };
+		84A32FFF2065096200FD70DD /* RNCalliOSAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A32FFC2065096200FD70DD /* RNCalliOSAction.m */; };
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
 /* End PBXBuildFile section */
 
@@ -344,6 +347,12 @@
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
+		84A32FF72065096200FD70DD /* HybirdController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HybirdController.m; sourceTree = "<group>"; };
+		84A32FF82065096200FD70DD /* HybirdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HybirdViewController.h; sourceTree = "<group>"; };
+		84A32FF92065096200FD70DD /* HybirdController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HybirdController.h; sourceTree = "<group>"; };
+		84A32FFA2065096200FD70DD /* HybirdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HybirdViewController.m; sourceTree = "<group>"; };
+		84A32FFB2065096200FD70DD /* RNCalliOSAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNCalliOSAction.h; sourceTree = "<group>"; };
+		84A32FFC2065096200FD70DD /* RNCalliOSAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNCalliOSAction.m; sourceTree = "<group>"; };
 		ADBDB91F1DFEBF0600ED6528 /* RCTBlob.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTBlob.xcodeproj; path = "../node_modules/react-native/Libraries/Blob/RCTBlob.xcodeproj"; sourceTree = "<group>"; };
 		C996F083167E4A32051911AE /* libPods-ReactNativeLearn.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ReactNativeLearn.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -485,6 +494,7 @@
 		13B07FAE1A68108700A75B9A /* ReactNativeLearn */ = {
 			isa = PBXGroup;
 			children = (
+				84A32FB9206507E600FD70DD /* activity */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
@@ -598,6 +608,27 @@
 				2D02E4901E0B4A5D006451C7 /* ReactNativeLearn-tvOSTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		84A32FB9206507E600FD70DD /* activity */ = {
+			isa = PBXGroup;
+			children = (
+				84A32FF6206508CF00FD70DD /* RNCallNative */,
+			);
+			name = activity;
+			sourceTree = "<group>";
+		};
+		84A32FF6206508CF00FD70DD /* RNCallNative */ = {
+			isa = PBXGroup;
+			children = (
+				84A32FF92065096200FD70DD /* HybirdController.h */,
+				84A32FF72065096200FD70DD /* HybirdController.m */,
+				84A32FF82065096200FD70DD /* HybirdViewController.h */,
+				84A32FFA2065096200FD70DD /* HybirdViewController.m */,
+				84A32FFB2065096200FD70DD /* RNCalliOSAction.h */,
+				84A32FFC2065096200FD70DD /* RNCalliOSAction.m */,
+			);
+			name = RNCallNative;
 			sourceTree = "<group>";
 		};
 		ADBDB9201DFEBF0600ED6528 /* Products */ = {
@@ -1180,7 +1211,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84A32FFD2065096200FD70DD /* HybirdController.m in Sources */,
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
+				84A32FFE2065096200FD70DD /* HybirdViewController.m in Sources */,
+				84A32FFF2065096200FD70DD /* RNCalliOSAction.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
