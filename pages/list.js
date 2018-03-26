@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import Dimensions from 'Dimensions'   //获取屏幕的尺寸
 import listDetail from './listDetail'
+import * as jsCallNative from '../utils/jsCallNative'
 
 import {
-  Platform,
   StyleSheet,
   Text,
   View,
@@ -12,7 +12,6 @@ import {
   Button,
   FlatList,
   RefreshControl,
-  NativeModules
 } from 'react-native';
 
 // ItemSeparatorComponent：分割线组件， 
@@ -33,7 +32,6 @@ import {
 
 var ITEM_HEIGHT = 100;
 
-var HybirdController = NativeModules.HybirdController
 export default class list extends Component{
     
     _flatList;
@@ -83,7 +81,7 @@ export default class list extends Component{
     }
 
     getListData(){
-        HybirdController.showLoading()
+        jsCallNative.loading()
         fetch('https://v.juhe.cn/toutiao/index?key=1a52343f75501c9e0988e66bcb45d58e').then((response) => response.json()).
         then((json) => {
             let data =  json.result.data;
@@ -106,9 +104,9 @@ export default class list extends Component{
             
             console.log('111111111111111111');
             console.log(this.state.dataArray);
-            HybirdController.dismiss()
+           jsCallNative.dismiss()
         }).catch((error) => {
-            HybirdController.dismiss()
+            jsCallNative.dismiss()
             console.log(error);
         })  }
 
@@ -156,10 +154,10 @@ export default class list extends Component{
     }
 
     componentDidMount() {
-        // alert(1)
+        alert(1)
         //请求数据
         this.getListData();
-             var ScreenWidth = Dimensions.get('window').width;
+        var ScreenWidth = Dimensions.get('window').width;
         let imageWith = (ScreenWidth-50)/3;
         this.setState({
             imageStyle:{
@@ -173,11 +171,7 @@ export default class list extends Component{
     render(){
         return (
             <View style={{flex:1}}>
-                <Button title='' onPress={()=>{
-                    //this._flatList.scrollToEnd();
-                    //this._flatList.scrollToIndex({viewPosition:0,index:8});
-                    this._flatList.scrollToOffset({animated: true, offset: 200});
-                }}/>
+       
                 <View style={{flex:1}}>
                     <FlatList
                         ref={(flatList)=>this._flatList = flatList}
@@ -216,7 +210,7 @@ export default class list extends Component{
                         // onViewableItemsChanged={(info)=>{
                         // console.warn(info);
                         // }}
-                        data={this.state.dataArray} style={{marginTop:-34}}>
+                        data={this.state.dataArray} style={{}}>
                     </FlatList>
                 </View>
 
