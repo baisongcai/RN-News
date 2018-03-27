@@ -81,6 +81,9 @@ export default class list extends Component{
     }
 
     getListData(){
+
+
+        
         jsCallNative.loading()
         fetch('https://v.juhe.cn/toutiao/index?key=1a52343f75501c9e0988e66bcb45d58e').then((response) => response.json()).
         then((json) => {
