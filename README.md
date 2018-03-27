@@ -28,7 +28,7 @@ RN的意义不大，对于入门级的可以参考，希望能帮助到和我一
 总结：  
 index.android.bundle是用来调用原生控件的js脚本，每次当改变了 index.android.js，都需要使用上面的代码片段，来及时的更新index.android.bundle，然后打包才可以把新的index.android.js应用上，所以当没有index.android.bundle文件时，React-Native 项目是无法运行的。
 
-##页面要点
+##		页面要点
 
 ### **APP.js** 入口文件使用StackNavigator组件做导航
 
