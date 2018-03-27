@@ -154,7 +154,6 @@ export default class list extends Component{
     }
 
     componentDidMount() {
-        alert(1)
         //请求数据
         this.getListData();
         var ScreenWidth = Dimensions.get('window').width;

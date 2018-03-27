@@ -10,6 +10,21 @@ RN的意义不大，对于入门级的可以参考，希望能帮助到和我一
 
 3.  react-native run-android
 
+4.	注意：光这样还是不行，这样只能第一次运行成功，后面修改js后，reload还会报错，这个Could not connect to development server错误，连接不上服务器，什么鬼，搞了一上午终于解决了，不太会安卓开发就是坑啊。 
+5. 到网上一顿遨游啊，找到了解决办法。可通过 adb 反向代理端口，将 Mac 端口反向代理到测试机上  adb reverse tcp:8081 tcp:8081，ok试一下，what？没有安卓adb
+
+####安装adb
+1.	启动Terminal终端工具
+2. 输入cd ~/ 进入当前用户的home目录
+3. 创建：touch .bash_profile
+4. 打开并编辑：open .bash_profile
+5. 在文件中写入以下内容：export PATH=${PATH}:/XX/XX/XX/Android/sdk/platflom-tools
+6. 注意：这里又碰到一个坑，在android5.0以后，配置这个目录adb是不生效的，又找了半天才发现，export PATH=${PATH}:/Users/admin/Library/Android/sdk/tools这个目录就可以，所以在platflom-tools下把adb文件粘贴到tools目录下
+7. 保存关闭文件，source .bash_profile，跟新文件，adb devices 可以查看连接的设备
+
+#####最后：运行adb reverse tcp:8081 tcp:8081，安卓的真机调试就没问题了，在安卓5.0以前需要在app上的 Dev setting 下 Debug server host & port for device 设置ip:8081
+
+
 总结：  
 index.android.bundle是用来调用原生控件的js脚本，每次当改变了 index.android.js，都需要使用上面的代码片段，来及时的更新index.android.bundle，然后打包才可以把新的index.android.js应用上，所以当没有index.android.bundle文件时，React-Native 项目是无法运行的。
 
